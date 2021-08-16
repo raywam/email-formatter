@@ -1,11 +1,12 @@
 import express from 'express';
+import emailRouter from './infrastructure/routers';
 
 // rest of the code remains same
 const app = express();
 
-const PORT = 8000;
+const PORT = 3000;
 
-app.get('/', (req, res) => res.send('Email Formatter -'));
+app.use('/', emailRouter);
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
