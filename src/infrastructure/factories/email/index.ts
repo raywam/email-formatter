@@ -1,6 +1,11 @@
+import { Request, Response } from 'express';
+import EmailCommand from '../../../domain/commands/email';
+
 class EmailFormatterFactory {
-  create(_: any, res: any) {
-    res.send('teste')
+  create(req: Request, res: Response) {
+    const emailCommandResult = new EmailCommand().execute(req);
+
+    res.send(emailCommandResult);
   }
 }
 
