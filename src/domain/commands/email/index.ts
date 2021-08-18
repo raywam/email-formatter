@@ -1,12 +1,15 @@
 import BaseCommand from "..";
-
-import { Request } from 'express';
+import { EmailType } from "../../../@types/email-type";
+import ConfirmEmailStrategy from "../../strategies/email/confirmed";
 
 class EmailCommand extends BaseCommand {
-  execute(req: Request) {
-    return {
-      message: 'EmailCommand Message',
+  create(emailType: EmailType) {
+
+    if (emailType === EmailType.Confirmed) {
+      return new ConfirmEmailStrategy();
     }
+
+    throw new Error(`Email type ${emailType} is not found!`);
   }
 }
 

@@ -1,9 +1,7 @@
-import { Request } from 'express';
+import { EmailType } from '../../@types/email-type';
 
 class BaseCommand {
-  execute(req: Request) {
-
-  }
+  create(emailType: EmailType) { }
 }
 
 export default BaseCommand;

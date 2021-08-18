@@ -4,6 +4,8 @@ import emailRouter from './infrastructure/routers';
 // rest of the code remains same
 const app = express();
 
+app.use(express.json())
+
 const PORT = 3000;
 
 app.use('/', emailRouter);
